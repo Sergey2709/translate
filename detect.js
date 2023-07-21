@@ -5,7 +5,7 @@ import { startApp } from "./app.js";
 
 export default function detectTheLang(data) {
   const encodedParams = new URLSearchParams();
-  encodedParams.set("q", "English is hard, but detectably so");
+  encodedParams.set("q", data);
 
   const options = {
     method: "POST",
@@ -21,7 +21,7 @@ export default function detectTheLang(data) {
 
   async function requestToAPI() {
     try {
-      const response = await axios
+      await axios
         .request(options)
         .then((res) =>
           console.log(
